@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer", "AuthServer\AuthServer.csproj", "{DFA45D35-CC04-4814-A006-C74942DF5CD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{83633366-E3F3-45F5-A248-9E06F5AE9CD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "MvcClient\MvcClient.csproj", "{D6B31962-D331-4EAA-97CA-30E4CDDD11B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceServer", "ResourceServer\ResourceServer.csproj", "{EE9D8C73-DDE9-4D09-9948-CCF00F085485}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientCredentialsApp", "ClientCredentialsApp\ClientCredentialsApp.csproj", "{D63D87D7-B355-4B8A-AF26-9AC6D8D5141D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceOwnerPasswordApp", "ResourceOwnerPasswordApp\ResourceOwnerPasswordApp.csproj", "{0CE985BA-EC27-4E54-ABA0-039311992E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationCodeApp", "AuthorizationCodeApp\AuthorizationCodeApp.csproj", "{1B3EB602-F150-445A-916E-DA5D31F49D14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFA45D35-CC04-4814-A006-C74942DF5CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA45D35-CC04-4814-A006-C74942DF5CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA45D35-CC04-4814-A006-C74942DF5CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA45D35-CC04-4814-A006-C74942DF5CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83633366-E3F3-45F5-A248-9E06F5AE9CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83633366-E3F3-45F5-A248-9E06F5AE9CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83633366-E3F3-45F5-A248-9E06F5AE9CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83633366-E3F3-45F5-A248-9E06F5AE9CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B31962-D331-4EAA-97CA-30E4CDDD11B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B31962-D331-4EAA-97CA-30E4CDDD11B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B31962-D331-4EAA-97CA-30E4CDDD11B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B31962-D331-4EAA-97CA-30E4CDDD11B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9D8C73-DDE9-4D09-9948-CCF00F085485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9D8C73-DDE9-4D09-9948-CCF00F085485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9D8C73-DDE9-4D09-9948-CCF00F085485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9D8C73-DDE9-4D09-9948-CCF00F085485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63D87D7-B355-4B8A-AF26-9AC6D8D5141D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63D87D7-B355-4B8A-AF26-9AC6D8D5141D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63D87D7-B355-4B8A-AF26-9AC6D8D5141D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63D87D7-B355-4B8A-AF26-9AC6D8D5141D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE985BA-EC27-4E54-ABA0-039311992E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE985BA-EC27-4E54-ABA0-039311992E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE985BA-EC27-4E54-ABA0-039311992E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE985BA-EC27-4E54-ABA0-039311992E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B3EB602-F150-445A-916E-DA5D31F49D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3EB602-F150-445A-916E-DA5D31F49D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3EB602-F150-445A-916E-DA5D31F49D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3EB602-F150-445A-916E-DA5D31F49D14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C98F20FD-AACC-471E-8C23-938451518661}
+	EndGlobalSection
+EndGlobal
