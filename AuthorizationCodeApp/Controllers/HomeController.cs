@@ -15,14 +15,15 @@ namespace AuthorizationCodeApp.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public async Task Index()
+        public async Task<IActionResult> Index()
         {
             var token = await this.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
             var idToken = await this.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
             var refreshToken = await this.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
 
             var RedirectUri = await this.HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RedirectUri);
-            View();
+            
+            return View();
         }
 
         public IActionResult Privacy()

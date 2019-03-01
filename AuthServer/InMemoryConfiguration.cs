@@ -26,7 +26,7 @@ namespace AuthServer
             return new[]
             {
                 new ApiResource("socialnetwork", "社交网络"),
-                 new ApiResource("api1", "api1")
+                 new ApiResource("api1", "api1"),
             };
         }
 
@@ -78,13 +78,16 @@ namespace AuthServer
                     RedirectUris = { "http://localhost:52657/signin-oidc" },
                     FrontChannelLogoutUri="http://localhost:52657/signout-oidc",
                     PostLogoutRedirectUris = { "http://localhost:52657/signout-callback-oidc" },
+                    AlwaysIncludeUserClaimsInIdToken=true,
                     AllowOfflineAccess=true,
+                    AlwaysSendClientClaims=true,
                     AllowedScopes = new List<string>
                     {
                         "api1",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.StandardScopes.OfflineAccess
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
                     }
                 },
                 new Client
@@ -112,10 +115,11 @@ namespace AuthServer
                 {
                     SubjectId = "1",
                     Username = "mail@qq.com",
-                    Password = "password",
+                    Password = "1",
                     Claims={
-                        //new System.Security.Claims.Claim(JwtClaimTypes.Email,"312527814@qq.com"),
-                         new System.Security.Claims.Claim(JwtClaimTypes.Profile,"312527814")
+                        new System.Security.Claims.Claim(JwtClaimTypes.Email,"312527814@qq.com"),
+                         new System.Security.Claims.Claim(JwtClaimTypes.Profile,@"{ 'name': 'One Hacker Way', 'family_name': 'Heidelberg'}"),
+                         new System.Security.Claims.Claim("myName","里斯")
                     }
                 }
             };

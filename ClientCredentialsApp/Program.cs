@@ -26,7 +26,7 @@ namespace ClientCredentialsApp
 
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);
-            var reponse = await apiClient.GetAsync("http://localhost:42023/identity");
+            var reponse = await apiClient.GetAsync("http://localhost:5002/identity");
             if (!reponse.IsSuccessStatusCode)
             {
                 Console.WriteLine(reponse.StatusCode);

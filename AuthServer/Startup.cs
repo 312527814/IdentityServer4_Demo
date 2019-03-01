@@ -52,8 +52,8 @@ namespace AuthServer
                     return next(context);
                 };
             });
-            app.UseIdentityServer();
             app.UseStaticFiles();
+            app.UseIdentityServer();
             app.UseMvcWithDefaultRoute();
         }
     }

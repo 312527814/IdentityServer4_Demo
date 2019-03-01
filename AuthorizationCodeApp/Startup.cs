@@ -48,6 +48,7 @@ namespace AuthorizationCodeApp
                 options.Scope.Add("api1");
                 options.Scope.Add("openid");
                 options.Scope.Add("profile");
+                options.Scope.Add("email");
                 options.Scope.Add("offline_access");
             });
         }
