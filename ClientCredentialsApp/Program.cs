@@ -36,8 +36,6 @@ namespace ClientCredentialsApp
                 var content = await reponse.Content.ReadAsStringAsync();
             }
 
-
-
             Console.ReadKey();
         }
     }

@@ -18,6 +18,7 @@ namespace AuthServer
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                  new IdentityResources.Email(),
+                 new IdentityResource("roles","角色",new string[]{ "role"})
 
             };
         }
@@ -42,7 +43,7 @@ namespace AuthServer
                     ClientSecrets ={ new Secret("secretewwr".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     //AccessTokenLifetime = 3600,
-                    //AllowOfflineAccess = true,
+                    AllowOfflineAccess = true,
                     Claims={
                       new System.Security.Claims.Claim("Role","admin"),
                       new System.Security.Claims.Claim("Name","zhangsan")
@@ -58,15 +59,10 @@ namespace AuthServer
                         "api1" ,
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.Profile},
-                    AllowOfflineAccess = true,
-                },
-                new Client
-                {
-                    ClientId = "socialnetwork",
-                    ClientSecrets = new [] { new Secret("secret".Sha256()) },
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
-                    AllowedScopes = new [] { "socialnetwork" },
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
+                        "roles"
+                    },
                     AllowOfflineAccess = true,
                 },
                 new Client
@@ -81,9 +77,29 @@ namespace AuthServer
                     AlwaysIncludeUserClaimsInIdToken=true,
                     AllowOfflineAccess=true,
                     AlwaysSendClientClaims=true,
+                    AccessTokenLifetime=30,
                     AllowedScopes = new List<string>
                     {
                         "api1",
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OfflineAccess,
+                         "roles",
+                    }
+                },
+                 new Client
+                {
+                    ClientId = "angular-clinet",
+                    ClientName = "angular SPA 客户端",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    AccessTokenLifetime=60*5,
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    AllowedScopes = new List<string>
+                    {
+                         "api1",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
@@ -95,13 +111,15 @@ namespace AuthServer
                     ClientId = "mvc_implicit",
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    RedirectUris = { "http://localhost:53330/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:53330/signout-callback-oidc" },
+                    AllowAccessTokensViaBrowser = true,
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "socialnetwork"
+                        "api1",
+
                     }
                 }
             };
@@ -119,7 +137,7 @@ namespace AuthServer
                     Claims={
                         new System.Security.Claims.Claim(JwtClaimTypes.Email,"312527814@qq.com"),
                          new System.Security.Claims.Claim(JwtClaimTypes.Profile,@"{ 'name': 'One Hacker Way', 'family_name': 'Heidelberg'}"),
-                         new System.Security.Claims.Claim("myName","里斯")
+                         new System.Security.Claims.Claim("role","管理员")
                     }
                 }
             };

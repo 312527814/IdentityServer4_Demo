@@ -34,6 +34,8 @@ namespace ResourceServer
                   options.Authority = "http://localhost:5000/";
                   options.RequireHttpsMetadata = false;
                   options.Audience = "api1";
+                  options.TokenValidationParameters.ClockSkew = TimeSpan.FromMinutes(1);
+                  options.TokenValidationParameters.RequireExpirationTime = true;
               });
         }
 

@@ -21,9 +21,9 @@ namespace ResourceOwnerPasswordApp
                 Address = disco.TokenEndpoint,
                 ClientId = "ResourceOwnerPassword",
                 ClientSecret = "secretResourceOwnerPassword",
-                Scope = "api1 openid profile email",
+                Scope = "api1 openid profile email roles",
                 UserName = "mail@qq.com",
-                Password = "password",
+                Password = "1",
 
             });
 
@@ -41,10 +41,10 @@ namespace ResourceOwnerPasswordApp
 
             var apiClient2 = new HttpClient();
             apiClient2.SetBearerToken(tokenResponse.AccessToken);
-            var reponse2 = await apiClient.GetAsync(disco.UserInfoEndpoint);
+            var reponse2 = await apiClient2.GetAsync(disco.UserInfoEndpoint);
             if (!reponse2.IsSuccessStatusCode)
             {
-                Console.WriteLine(reponse.StatusCode);
+                Console.WriteLine(reponse2.StatusCode);
             }
             else
             {
