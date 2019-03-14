@@ -55,6 +55,7 @@ namespace AuthServer
                     ClientId = "ResourceOwnerPassword",
                     ClientSecrets = new [] { new Secret("secretResourceOwnerPassword".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowOfflineAccess=true,
                     AllowedScopes = new [] {
                         "api1" ,
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -63,7 +64,6 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.OfflineAccess,
                         "roles"
                     },
-                    AllowOfflineAccess = true,
                 },
                 new Client
                 {

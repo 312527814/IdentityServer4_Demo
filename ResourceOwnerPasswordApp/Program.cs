@@ -1,5 +1,6 @@
 ﻿using IdentityModel.Client;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace ResourceOwnerPasswordApp
 {
     class Program
     {
+        private string AcessToke = "";
+        private string RefreshToken = "";
         static async Task Main(string[] args)
         {
             var client = new HttpClient();
@@ -21,7 +24,7 @@ namespace ResourceOwnerPasswordApp
                 Address = disco.TokenEndpoint,
                 ClientId = "ResourceOwnerPassword",
                 ClientSecret = "secretResourceOwnerPassword",
-                Scope = "api1 openid profile email roles",
+                Scope = "api1 openid profile email offline_access roles",
                 UserName = "mail@qq.com",
                 Password = "1",
 
@@ -39,21 +42,26 @@ namespace ResourceOwnerPasswordApp
                 var content = await reponse.Content.ReadAsStringAsync();
             }
 
-            var apiClient2 = new HttpClient();
-            apiClient2.SetBearerToken(tokenResponse.AccessToken);
-            var reponse2 = await apiClient2.GetAsync(disco.UserInfoEndpoint);
-            if (!reponse2.IsSuccessStatusCode)
-            {
-                Console.WriteLine(reponse2.StatusCode);
-            }
-            else
-            {
-                var content = await reponse2.Content.ReadAsStringAsync();
-            }
-
-
+            //刷新token 获取accessToken 
+            var accessToken = await requestAccessToken(tokenResponse.RefreshToken);
 
             Console.ReadKey();
+        }
+
+
+        private static async Task<string> requestAccessToken(string refreshToken)
+        {
+            var apiClient = new HttpClient();
+            var disco = await apiClient.GetDiscoveryDocumentAsync("http://localhost:5000/");
+            var respone = await apiClient.RequestRefreshTokenAsync(new RefreshTokenRequest
+            {
+                Address = disco.TokenEndpoint,
+                ClientId = "ResourceOwnerPassword",
+                ClientSecret = "secretResourceOwnerPassword",
+                Scope = "api1 openid profile email offline_access roles",
+                RefreshToken = refreshToken
+            });
+            return respone.AccessToken;
         }
     }
 }

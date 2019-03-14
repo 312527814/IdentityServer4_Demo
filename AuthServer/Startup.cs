@@ -30,7 +30,7 @@ namespace AuthServer
             //var creds2 = new SigningCredentials(key, SecurityAlgorithms.RsaSha256);
             //var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SecurityKey"));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);// SecurityAlgorithms.HmacSha256 = "HS256"
-            var IdentityServerBuilder = services.AddIdentityServer().AddSigningCredential(credential);
+            var IdentityServerBuilder = services.AddIdentityServer().AddDeveloperSigningCredential();//.AddSigningCredential(credential);
             //.AddDeveloperSigningCredential()
             IdentityServerBuilder.AddInMemoryIdentityResources(InMemoryConfiguration.GetIdentityResources())
                .AddTestUsers(InMemoryConfiguration.Users().ToList())

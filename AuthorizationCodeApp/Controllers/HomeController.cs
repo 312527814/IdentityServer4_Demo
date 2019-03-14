@@ -74,7 +74,7 @@ namespace AuthorizationCodeApp.Controllers
                 ClientId = "mvc client",
                 ClientSecret = "mvc secret",
                 Scope = "api openid",
-                GrantType = "code",
+                //GrantType = "code",
                 RefreshToken = refreshToken
             });
             return respone.AccessToken;
