@@ -61,7 +61,6 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
-                        IdentityServerConstants.StandardScopes.OfflineAccess,
                         "roles"
                     },
                 },
@@ -69,7 +68,7 @@ namespace AuthServer
                 {
                     ClientId = "mvc client",
                     ClientName = "ASP.NET Core MVC Client",
-                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                    AllowedGrantTypes = GrantTypes.Code,
                     ClientSecrets={ new Secret("mvc secret".Sha256())},
                     RedirectUris = { "http://localhost:52657/signin-oidc" },
                     FrontChannelLogoutUri="http://localhost:52657/signout-oidc",
@@ -84,7 +83,6 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.OfflineAccess,
                          "roles",
                     }
                 },
@@ -93,7 +91,6 @@ namespace AuthServer
                     ClientId = "angular-clinet",
                     ClientName = "angular SPA 客户端",
                     AllowedGrantTypes = GrantTypes.Implicit,
-
                     RedirectUris = { "http://localhost:5002/signin-oidc" },
                     AccessTokenLifetime=60*5,
                     PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
@@ -103,7 +100,6 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.OfflineAccess,
                     }
                 },
                 new Client
@@ -119,8 +115,29 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "api1",
-
                     }
+                },
+                 new Client
+                {
+                    ClientId = "mvc Hybrid",
+                    ClientName = "MVC Client Hybrid",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+
+                    RedirectUris = { "http://localhost:54902/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:54902/signout-callback-oidc" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+                    AllowOfflineAccess = true
                 }
             };
         }

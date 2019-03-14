@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthorizationCodeApp", "Aut
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{2162C41B-E5FE-4BB1-A2F0-6B33D325A9C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplicitFlowApp", "ImplicitFlowApp\ImplicitFlowApp.csproj", "{99D68717-ACB7-45F9-B4C7-52DADFEE0D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImplicitFlowApp", "ImplicitFlowApp\ImplicitFlowApp.csproj", "{99D68717-ACB7-45F9-B4C7-52DADFEE0D07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HybridApp", "HybridApp\HybridApp.csproj", "{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{99D68717-ACB7-45F9-B4C7-52DADFEE0D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99D68717-ACB7-45F9-B4C7-52DADFEE0D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99D68717-ACB7-45F9-B4C7-52DADFEE0D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{0CE985BA-EC27-4E54-ABA0-039311992E03} = {2162C41B-E5FE-4BB1-A2F0-6B33D325A9C2}
 		{1B3EB602-F150-445A-916E-DA5D31F49D14} = {2162C41B-E5FE-4BB1-A2F0-6B33D325A9C2}
 		{99D68717-ACB7-45F9-B4C7-52DADFEE0D07} = {2162C41B-E5FE-4BB1-A2F0-6B33D325A9C2}
+		{4C86925F-1D95-4E38-9E48-32A3BE1C2C6A} = {2162C41B-E5FE-4BB1-A2F0-6B33D325A9C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98F20FD-AACC-471E-8C23-938451518661}
