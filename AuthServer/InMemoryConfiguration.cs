@@ -27,7 +27,7 @@ namespace AuthServer
             return new[]
             {
                 new ApiResource("socialnetwork", "社交网络"),
-                 new ApiResource("api1", "api1"),
+                 new ApiResource("api1", "api1",new List<string>(){JwtClaimTypes.Role,"city"}),
             };
         }
 
@@ -63,6 +63,10 @@ namespace AuthServer
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Profile,
                         "roles"
+                    },
+                     Claims={
+                      new System.Security.Claims.Claim("role","admin"),
+                      new System.Security.Claims.Claim("Name","zhangsan")
                     },
                 },
                 new Client
@@ -155,7 +159,8 @@ namespace AuthServer
                     Claims={
                         new System.Security.Claims.Claim(JwtClaimTypes.Email,"312527814@qq.com"),
                          new System.Security.Claims.Claim(JwtClaimTypes.Profile,@"{ 'name': 'One Hacker Way', 'family_name': 'Heidelberg'}"),
-                         new System.Security.Claims.Claim("role","管理员")
+                         new System.Security.Claims.Claim("role","管理员"),
+                         new System.Security.Claims.Claim("city","北京")
                     }
                 }
             };

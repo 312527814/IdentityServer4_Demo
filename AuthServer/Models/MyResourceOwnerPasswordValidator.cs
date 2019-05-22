@@ -23,8 +23,7 @@ namespace AuthServer.Models
             var user = InMemoryConfiguration.Users().FirstOrDefault(f=>f.Password==context.Password&&f.Username==context.UserName);
             context.Result = new GrantValidationResult(
                 user.SubjectId ?? throw new ArgumentException("Subject ID not set", nameof(user.SubjectId)),
-                OidcConstants.AuthenticationMethods.Password, DateTime.UtcNow,
-                user.Claims);
+                OidcConstants.AuthenticationMethods.Password, DateTime.UtcNow);
             return Task.CompletedTask;
         }
     }

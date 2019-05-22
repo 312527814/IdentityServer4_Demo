@@ -29,7 +29,7 @@ namespace AuthServer.Models
         /// <param name="logger">The logger.</param>
         public MyCustomProfileService(ILogger<TestUserProfileService> logger)
         {
-           
+
             Logger = logger;
         }
 
@@ -56,7 +56,13 @@ namespace AuthServer.Models
             //}
 
             //context.LogIssuedClaims(Logger);
+            var user = InMemoryConfiguration.Users().FirstOrDefault(f => f.SubjectId == context.Subject.GetSubjectId());
+            if (user != null)
+            {
+                //调用此方法以后内部会进行过滤，只将用户请求的Claim加入到 context.IssuedClaims 集合中 这样我们的请求方便能正常获取到所需Claim
 
+                context.AddRequestedClaims(user.Claims);
+            }
             return Task.CompletedTask;
         }
 
