@@ -23,7 +23,7 @@ namespace ResourceOwnerPasswordApp
             {
                 Address = disco.TokenEndpoint,
                 ClientId = "ResourceOwnerPassword",
-                ClientSecret = "secretResourceOwnerPassword",
+                ClientSecret = "secretResourceOwnerPassword2",
                 Scope = "api1 openid profile email offline_access roles",
                 UserName = "mail@qq.com",
                 Password = "1",

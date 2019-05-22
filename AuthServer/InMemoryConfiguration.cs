@@ -53,7 +53,7 @@ namespace AuthServer
                  new Client
                 {
                     ClientId = "ResourceOwnerPassword",
-                    ClientSecrets = new [] { new Secret("secretResourceOwnerPassword".Sha256()) },
+                    ClientSecrets = new [] { new Secret("secretResourceOwnerPassword") },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowOfflineAccess=true,
                     

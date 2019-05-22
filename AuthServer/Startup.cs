@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AuthServer.Models;
+using IdentityServer4.Models;
 using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,7 +44,10 @@ namespace AuthServer
                .AddProfileService<MyCustomProfileService>()
                .AddResourceOwnerValidator<MyResourceOwnerPasswordValidator>()
                .AddClientStore<MyClientStore>()
+               .AddSecretValidator<MySecretValidator>()
                ;
+
+
             services.AddMvc();
         }
 
