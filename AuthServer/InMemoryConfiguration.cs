@@ -56,6 +56,7 @@ namespace AuthServer
                     ClientSecrets = new [] { new Secret("secretResourceOwnerPassword".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowOfflineAccess=true,
+                    
                     AllowedScopes = new [] {
                         "api1" ,
                         IdentityServerConstants.StandardScopes.OpenId,

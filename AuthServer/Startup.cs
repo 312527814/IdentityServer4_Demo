@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AuthServer.Models;
+using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,9 +35,15 @@ namespace AuthServer
             var IdentityServerBuilder = services.AddIdentityServer().AddDeveloperSigningCredential();//.AddSigningCredential(credential);
             //.AddDeveloperSigningCredential()
             IdentityServerBuilder.AddInMemoryIdentityResources(InMemoryConfiguration.GetIdentityResources())
-               .AddTestUsers(InMemoryConfiguration.Users().ToList())
-               .AddInMemoryClients(InMemoryConfiguration.Clients())
-               .AddInMemoryApiResources(InMemoryConfiguration.ApiResources());
+
+               .AddCustomTokenRequestValidator<MyCustomTokenRequestValidator>()
+               //.AddTestUsers(InMemoryConfiguration.Users().ToList())
+               //.AddInMemoryClients(InMemoryConfiguration.Clients())
+               .AddInMemoryApiResources(InMemoryConfiguration.ApiResources())
+               .AddProfileService<MyCustomProfileService>()
+               .AddResourceOwnerValidator<MyResourceOwnerPasswordValidator>()
+               .AddClientStore<MyClientStore>()
+               ;
             services.AddMvc();
         }
 
@@ -54,7 +62,7 @@ namespace AuthServer
             {
                 return context =>
                 {
-                    
+
                     return next(context);
                 };
             });
